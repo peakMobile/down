@@ -1,0 +1,274 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>移动学习APP</title>
+		<meta http-equiv="Cache-Control" content="no-store">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Expires" content="0">
+        <script src="./qrcode.js"></script>
+		<style>
+			HTML {
+				font-family: "Microsoft YaHei","Open Sans","Helvetica Neue",Helvetica,sans-serif;
+			}
+			body {
+				margin: 0px;
+				padding: 0px;
+				min-width: 960px;
+				text-rendering: optimizelegibility;
+			}
+			.combo {
+				width: 100%;
+				height: 100%;
+				text-align: center;
+			}
+			.combo .firstwarp {
+				width: 100%;
+				min-height: 380px;
+				background-color: #4A90E2;
+			}
+			.combo .warp {
+				position: relative;
+				text-align: center;
+			}
+			.combo .firstwarp .centerWarp {
+				position: relative;
+				text-align: center;
+			}
+			.combo .firstwarp .centerWarp .basicWarp {
+				display: inline-block;
+				margin-top: 30px;
+			}
+			a {
+				background: transparent none repeat scroll 0px 0px;
+			}
+			.combo .firstwarp .centerWarp .basicWarp .appicon .icon {
+				border-radius: 22.5%;
+				width: 120px;
+				height: 120px;
+			}
+			.combo .firstwarp .centerWarp .basicWarp .value {
+				color: #FFF;
+			}
+			.combo .firstwarp .centerWarp .basicWarp .title {
+				margin-top: 20px;
+			}
+			h2 {
+				font-size: 1.5em;
+				margin: 0.83em 0px;
+			}
+			.combo .firstwarp .centerWarp .basicWarp .qrCode {
+				margin-top: 20px;
+				min-height: 120px;
+			}
+			.combo .firstwarp .centerWarp .basicWarp .qrCode .qrwarp {
+				border-radius: 8px;
+				display: inline-block;
+				width: 160px;
+				height: 160px;
+				background-color: #FFF;
+			}
+			audio, canvas, video {
+				display: inline-block;
+			}
+			.combo .firstwarp .centerWarp .basicWarp .qrCode .qrwarp img {
+				padding: 5px;
+				width: 150px;
+				height: 150px;
+			}
+			img {
+				border: 0px none;
+			}
+			.combo .firstwarp .centerWarp .basicWarp .tips {
+				margin: 20px 0 20px 0;
+			}
+			.combo .tips .divider {
+				color: #FFF;
+				text-align: center;
+				font-size: 12px;
+				line-height: 2em;
+				margin: 0px;
+				padding: 0px;
+				width: 100%;
+			}
+			.divider {
+				color: #646E78;
+				width: 70%;
+				margin: 30px auto 50px;
+				overflow: hidden;
+				text-align: center;
+				line-height: 1.2em;
+				font-size: 36px;
+			}
+			.combo .tips .short-link {
+				font-weight: 400;
+				font-size: 16px;
+			}
+			.combo .detailWarp {
+				padding-top: 30px;
+				margin-bottom: 20px;
+			}
+			.combo .detailWarp .detail {
+				width: 960px;
+				margin: 0px auto;
+			}
+			.combo .detailWarp .vertical {
+				width: 1px;
+				height: 100%;
+				position: absolute;
+				left: 50%;
+				top: 0px;
+				background-color: #DCDCDC;
+			}
+			.combo .detailWarp .row .half {
+				width: 480px;
+				float: left;
+				display: inline-block;
+				vertical-align: top;
+				text-align: center;
+				box-sizing: border-box;
+			}
+			.combo .detailWarp .detail .comboApp .type {
+				color: #2091AC;
+				font-size: 30px;
+			}
+			.combo .detailWarp .detail .comboApp .top {
+				min-width: 960px;
+				transition: z-index 0.5s ease 0s;
+			}
+			.combo .detailWarp .top.row {
+				overflow: visible;
+			}
+			.combo .detailWarp .row {
+				font-size: 0px;
+				text-align: left;
+				overflow: hidden;
+			}
+			.combo .detailWarp .detail .comboApp .versions {
+				margin-top: 20px;
+			}
+			.combo .detailWarp .row .half:nth-child(2) {
+				padding-left: 40px;
+				float: right;
+			}
+			.combo .detailWarp .detail .comboApp .versions .version {
+				color: #30ACC7;
+				font-size: 12px;
+			}
+			.combo .detailWarp .detail .comboApp .label-set {
+				margin: 20px 0;
+			}
+			.combo .detailWarp .row .half:nth-child(1) {
+				padding-right: 40px;
+				float: left;
+			}
+			.combo .detailWarp .detail .comboApp .label {
+				color: #30ACC7;
+				font-size: 14px;
+			}
+			.combo .tips .divider::after, .combo .tips .divider::before {
+				height: 0.95em;
+			}
+			.divider:after, .divider:before {
+				content: "";
+				vertical-align: top;
+				display: inline-block;
+				width: 50%;
+				height: 0.65em;
+				border-bottom: 1px solid #DEDCDF;
+				margin: 0px 2% 0px -55%;
+			}
+			.divider:after {
+				margin: 0px -55% 0px 2%;
+			}
+			.combo .tips {
+				letter-spacing: 1.2px;
+				font-weight: 300;
+				font-size: 14px;
+			}
+			#qrcode{
+				width: 96px;
+				height: 96px;
+				colorDark : "#000000";
+				colorLight : "#ffffff";
+			}
+		</style>
+        <script>
+			window.onload =function(){
+				var qrcode = new QRCode(document.getElementById("qrcode"), {
+					width : 96,//设置宽高
+					height : 96
+				});
+				var hrefSrc=window.location.href;
+				hrefSrc=hrefSrc.substring(0,hrefSrc.lastIndexOf("/")+1);
+				var plist=hrefSrc+"down.html";
+				qrcode.makeCode(plist);
+			}
+
+		</script>
+	</head>
+	<body>
+		<div class="combo">
+			<div class="firstwarp warp ">
+				<div class="centerWarp">
+					<div class="basicWarp">
+						<div class="value title">
+							<h1>培训平台</h1>
+							<h2>移动学习客户端</h2>
+						</div>
+						<div class="qrCode">
+							<div class="qrwarp" id="qrcodeImg">
+								<div id="qrcode" alt="Scan me!"></div>
+							</div>
+						</div>
+						<div class="tips value">
+							<p>请扫描二维码<a href="./down.html">下载</a></p>
+							<div class="divider">或</div>
+							<p>点击“立即下载”按钮直接下载</p>
+							<p>如使用<span style="color:green">微信</span>扫描，请点击微信右上角菜单 , 选择'<span style="color:green">在浏览器中打开</span>'。</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="detailWarp warp">
+				<div class="detail">
+					<div class="comboApp">
+						<div class="" style="height:30px;">
+							<div class="top row" id="top">
+								<div class="half type">iOS</div>
+								<div class="half type">Android</div>
+								<div class="vertical"></div>
+							</div>
+						</div>
+						<div class="row versions info">
+							<div class="half version"> 
+								<span class="version">版本: 5.8</span> &nbsp;&nbsp;
+								<time>更新于: 2017-02-17 12:26:20</time>
+							</div>
+							<div class="half version">
+								<span class="version">版本 : 5.8</span>&nbsp;&nbsp;
+								<time>更新于: 2017-01-19 14:40:09</time>
+							</div>
+						</div>
+						<div class="row label-set">
+							<div class="half">  
+								<span class="label"><a href="./peak_learning.ipa" target="downFrame"><img src="./img/btn_appstore.png" style="max-width: 200px"></a></span>
+							</div>
+							<div class="half">  
+								<span class="label"><a href="./peak_learning.apk" target="downFrame"><img src="./img/btn_android.png" style="max-width: 200px"></a></span>
+							</div>
+							<iframe id="downFrame" name="downFrame" src="" style="display:none"></iframe>
+						</div>
+						<div class="row button">
+							<!--如果都没有link不显示按钮-->
+							<div class="half download">
+							</div>
+							<div class="half download">
+							</div>
+						</div>
+					</div>
+					<div class="vertical"></div>
+				</div>
+			</div>
+		</div>
+	
+
+</body></html>
